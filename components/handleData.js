@@ -1,6 +1,7 @@
-const heart = function(width = 1, topH = 1, midH = 1, botH = 1) {
-  let dot = ".";
-  let tag = "#";
+const colors = require("colors");
+const handleData = function(width = 1, topH = 1, midH = 1, botH = 1) {
+  let dot = ".".yellow;
+  let tag = "#".red;
   let bline = "\n";
   const sym1 = (sym2 = [dot, tag, dot, tag, dot]);
   const sym3 = (sym9 = [tag, tag, tag, tag, tag]);
@@ -83,17 +84,4 @@ const heart = function(width = 1, topH = 1, midH = 1, botH = 1) {
   }
   return result;
 };
-let args = process.argv.slice(2);
-let flag = true;
-for (let i = 0; i < args.length; ++i) {
-  if (
-    !typeof args[i] === "number" ||
-    args[i] % 1 !== parseInt(0) ||
-    args[i] <= parseInt(0)
-  ) {
-    flag = false;
-    console.log("All variables should be integers higher than zero");
-    break;
-  }
-}
-if (flag) console.log(heart(args[0], args[1], args[2], args[3]));
+module.exports = handleData;
